@@ -1,0 +1,634 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="images/c12.png" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <link rel="apple-touch-icon" href="/logo192.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <!-- card -->
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+
+    <!-- Swal fire -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+
+    <!-- FA FA ICON -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <!-- Google fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&display=swap" rel="stylesheet">
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
+      rel="stylesheet"
+    />
+    <title>CCS STAKING : A Defi Staking Pool</title>
+    <link href="style-css.css" rel="stylesheet" />
+    <style data-jss="" data-meta="MuiDialog">
+      @media print {
+        .MuiDialog-root {
+          position: absolute !important;
+        }
+      }
+      .MuiDialog-scrollPaper {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .MuiDialog-scrollBody {
+        overflow-x: hidden;
+        overflow-y: auto;
+        text-align: center;
+      }
+      .MuiDialog-scrollBody:after {
+        width: 0;
+        height: 100%;
+        content: "";
+        display: inline-block;
+        vertical-align: middle;
+      }
+      .MuiDialog-container {
+        height: 100%;
+        outline: 0;
+      }
+      @media print {
+        .MuiDialog-container {
+          height: auto;
+        }
+      }
+      .MuiDialog-paper {
+        margin: 32px;
+        position: relative;
+        overflow-y: auto;
+      }
+      @media print {
+        .MuiDialog-paper {
+          box-shadow: none;
+          overflow-y: visible;
+        }
+      }
+      .MuiDialog-paperScrollPaper {
+        display: flex;
+        max-height: calc(100% - 64px);
+        flex-direction: column;
+      }
+      .MuiDialog-paperScrollBody {
+        display: inline-block;
+        text-align: left;
+        vertical-align: middle;
+      }
+      .MuiDialog-paperWidthFalse {
+        max-width: calc(100% - 64px);
+      }
+      .MuiDialog-paperWidthXs {
+        max-width: 444px;
+      }
+      @media (max-width: 507.95px) {
+        .MuiDialog-paperWidthXs.MuiDialog-paperScrollBody {
+          max-width: calc(100% - 64px);
+        }
+      }
+      .MuiDialog-paperWidthSm {
+        max-width: 600px;
+      }
+      @media (max-width: 663.95px) {
+        .MuiDialog-paperWidthSm.MuiDialog-paperScrollBody {
+          max-width: calc(100% - 64px);
+        }
+      }
+      .MuiDialog-paperWidthMd {
+        max-width: 960px;
+      }
+      @media (max-width: 1023.95px) {
+        .MuiDialog-paperWidthMd.MuiDialog-paperScrollBody {
+          max-width: calc(100% - 64px);
+        }
+      }
+      .MuiDialog-paperWidthLg {
+        max-width: 1280px;
+      }
+      @media (max-width: 1343.95px) {
+        .MuiDialog-paperWidthLg.MuiDialog-paperScrollBody {
+          max-width: calc(100% - 64px);
+        }
+      }
+      .MuiDialog-paperWidthXl {
+        max-width: 1920px;
+      }
+      @media (max-width: 1983.95px) {
+        .MuiDialog-paperWidthXl.MuiDialog-paperScrollBody {
+          max-width: calc(100% - 64px);
+        }
+      }
+      .MuiDialog-paperFullWidth {
+        width: calc(100% - 64px);
+      }
+      .MuiDialog-paperFullScreen {
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        max-width: 100%;
+        max-height: none;
+        border-radius: 0;
+      }
+      .MuiDialog-paperFullScreen.MuiDialog-paperScrollBody {
+        margin: 0;
+        max-width: 100%;
+      }
+      .home-page {
+        background-color: black !important;
+      }
+      .home-page .wrap ._block {
+        flex-direction: unset !important;
+      }
+      .home-page {
+        height: unset !important;
+      }
+    </style>
+    <script>
+      function changeDivtab1(value) {
+        value.parentElement.parentElement.getElementsByClassName(
+          "tab1_div"
+        )[0].style.display = "block";
+        value.parentElement.parentElement.getElementsByClassName(
+          "tab2_div"
+        )[0].style.display = "none";
+        value.style.background = "rgb(33 32 25)";
+        value.style.color = "#fff";
+        value.parentElement.getElementsByClassName("tab2")[0].style.background =
+          "#000000";
+        value.parentElement.getElementsByClassName("tab2")[0].style.color =
+          "#fbd733";
+      }
+      function changeDivtab2(value) {
+        value.parentElement.parentElement.getElementsByClassName(
+          "tab2_div"
+        )[0].style.display = "block";
+        value.parentElement.parentElement.getElementsByClassName(
+          "tab1_div"
+        )[0].style.display = "none";
+        value.style.background = "#fbd733";
+        value.style.color = "#FFFFFF";
+        value.parentElement.getElementsByClassName("tab1")[0].style.background =
+          "#000000";
+        value.parentElement.getElementsByClassName("tab1")[0].style.color =
+          "#fbd733";
+      }
+    </script>
+  </head>
+  <body>
+    <div class="home-page flex flex-col">
+      <div class="wrap wrapWidth flex justify-center flex-col items-center">
+        <button class="connect-button button-85" id="connect-btn">Connect</button><br><br>
+        <h2 class="heading2"><img class="iamge-logo" src="images/ccsbg.jpg" > </h2>
+        <div class="paragraph">
+            <h1 class="heading">CloutContracts Staking</h1><br>
+    
+            <p>
+              CCS holders who have CCS on the Ethereum Mainnet can now stake some of their CSS for a certain period of time, and receive CCS on top of their staked amount as a reward. To insure trust, the Solidity code that this DApp interacts with is verified and viewable on Etherscan. On Binance, the option to stake CloutContracts_Peg is available. Please keep in mind, this isn't investment or financial advice. CloutContracts is to be looked at as a utility.
+
+            </p><br>
+            <div class="text-center">
+              <button class="center-button button-85 d-block" onclick="window.open('https://cloutcontracts.net/staking-bsc', '_blank')">Switch to Binance Smart Chain</button><br><br>
+
+              <!-- <button class="center-button button-85 d-block">Buy Token</button> -->
+            </div>
+
+
+
+        </div><br><br>
+        <div class="_block flex flex-wrap">
+          <div class="card flex flex-col items-center">
+            <div class="card-tag">Staking Plan #1</div>
+            <div class="card-block flex-col items-center">
+              <div class="selection-tabs flex items-center">
+                <div
+                  class="tab flex items-center justify-center active tab1 "
+                  onclick="changeDivtab1(this)"
+                >
+                  Stake
+                </div>
+                <button
+                  id="reward-tab-1"
+                  class="tab flex items-center justify-center tab2"
+                  style="color: rgb(255, 255, 255); background: rgb(0 0 0);"
+                  onclick="handleRewardTab(this, 1)"
+                  disabled
+                >
+                  Reward
+                </button>
+              </div>
+              <div class="meta flex flex-col justify-between tab1_div">
+                <div class="fields-box flex flex-col">
+                  <div class="field flex flex-col">
+                    <div class="f-tag">Stake Token Amount</div>
+                    <div class="input-box flex items-center mb-6">
+                      <input
+                        id="stake-token-amount-1"
+                        type="number"
+                        class="txt w-full"
+                        placeholder="Stake token amount"
+                        value="29"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="item flex items-center justify-between">
+                    <div class="lbl">ROI</div>
+                    <div class="val">3.5%</div>
+                  </div>
+                  <div class="item flex items-center justify-between mb-6">
+                    <div class="lbl">TIME</div>
+                    <div class="val">30 Days</div>
+                  </div>
+                </div>
+                <div class="action flex items-center justify-center">
+                  <button
+                    class="btn button-85"
+                    id="stake-btn"
+                    onclick="handleStake(1)"
+                  >
+                    Stake
+                  </button>
+                </div>
+              </div>
+              <div class="meta flex flex-col tab2_div" style="display: none">
+                <select
+                    id="stake-select-1"
+                    class=" "
+                    style="
+                      width: 100%;
+                      height: 40px;
+                      padding: 0px 1rem;
+                      border-radius: 0.5rem;
+                      border: 1px solid rgb(229, 229, 229);
+                      background-color: rgb(255, 255, 255);
+                      font-size: 1.2rem;
+                      color: rgb(0, 0, 0);
+                      outline: none;
+                      cursor: pointer;
+                    "
+                  >
+                    <option value="STAKES">Your Stake</option>
+                  </select><br><br><br>
+                <div class="field-action flex items-center w-full">
+                  
+                  <div class="val min-w-[100px]" id="reward-1">0</div>
+                  <button
+                    class="btn button-85 w-full"
+                    id="claim-reward-1"
+                    onclick="claimReward(1)"
+                  >
+                    Claim
+                  </button>
+                </div>
+                <div class="field-action flex items-center w-full">
+                  <button class="btn button-85 w-full" onclick="handleWithdraw(1)">
+                    Withdraw
+                  </button>
+                </div>
+                <div class="item flex items-center justify-between mb-6">
+                  <div class="lbl">Unlocks In</div>
+                  <span id="unlock-time-1"   style="color: white;">00:00:00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card flex flex-col items-center">
+            <div class="card-tag">Staking Plan #2</div>
+            <div class="card-block flex-col items-center">
+              <div class="selection-tabs flex items-center">
+                <div
+                  class="tab flex items-center justify-center active tab1"
+                  onclick="changeDivtab1(this)"
+                >
+                  Stake
+                </div>
+                <button
+                  id="reward-tab-2"
+                  class="tab flex items-center justify-center tab2"
+                  onclick="handleRewardTab(this, 2)"
+                >
+                  Reward
+                </button>
+              </div>
+              <div class="meta flex flex-col justify-between tab1_div">
+                <div class="fields-box flex flex-col">
+                  <div class="field flex flex-col">
+                    <div class="f-tag">Stake Token Amount</div>
+                    <div class="input-box flex items-center mb-6">
+                      <input
+                        id="stake-token-amount-2"
+                        type="number"
+                        class="txt w-full"
+                        placeholder="Stake token amount"
+                        value="24"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="item flex items-center justify-between">
+                    <div class="lbl">ROI</div>
+                    <div class="val">12.5%</div>
+                  </div>
+                  <div class="item flex items-center justify-between mb-6">
+                    <div class="lbl">TIME</div>
+                    <div class="val">90 Days</div>
+                  </div>
+                </div>
+                <div class="action flex items-center justify-center">
+                  <button class="btn button-85" onclick="handleStake(2)">
+                    Stake
+                  </button>
+                </div>
+              </div>
+              <div class="meta flex flex-col tab2_div" style="display: none">
+                <select
+                id="stake-select-2"
+                class=" "
+                style="
+                  width: 100%;
+                  height: 40px;
+                  padding: 0px 1rem;
+                  border-radius: 0.5rem;
+                  border: 1px solid rgb(229, 229, 229);
+                  background-color: rgb(255, 255, 255);
+                  font-size: 1.2rem;
+                  color: rgb(0, 0, 0);
+                  outline: none;
+                  cursor: pointer;
+                "
+              >
+                <option value="STAKES">Your Stake</option>
+              </select><br><br><br>
+                <div class="field-action flex items-center w-full">
+               
+                  <div class="val min-w-[100px]" id="reward-2">0</div>
+                  <button
+                    class="btn button-85 w-full"
+                    id="claim-reward-2"
+                    onclick="claimReward(2)"
+                  >
+                    Claim
+                  </button>
+                </div>
+                <div class="field-action flex items-center w-full">
+                  <button class="btn button-85 w-full" onclick="handleWithdraw(2)">
+                    Withdraw
+                  </button>
+                </div>
+                <div class="item flex items-center justify-between mb-6">
+                  <div class="lbl">Unlocks In</div>
+                  <span id="unlock-time-2" style="color: white;">00:00:00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card flex flex-col items-center">
+            <div class="card-tag">Staking Plan #3</div>
+            <div class="card-block flex-col items-center">
+              <div class="selection-tabs flex items-center">
+                <div
+                  class="tab flex items-center justify-center active tab1"
+                  onclick="changeDivtab1(this)"
+                >
+                  Stake
+                </div>
+                <button
+                  id="reward-tab-3"
+                  class="tab flex items-center justify-center tab2"
+                  onclick="handleRewardTab(this, 3)"
+                >
+                  Reward
+                </button>
+              </div>
+              <div class="meta flex flex-col justify-between tab1_div">
+                <div class="fields-box flex flex-col">
+                  <div class="field flex flex-col">
+                    <div class="f-tag">Stake Token Amount</div>
+                    <div class="input-box flex items-center mb-6">
+                      <input
+                        id="stake-token-amount-3"
+                        type="number"
+                        class="txt w-full"
+                        placeholder="Stake token amount"
+                        value="8"
+                        readonly
+                      />
+                    </div>
+                  </div>
+                  <div class="item flex items-center justify-between">
+                    <div class="lbl">ROI</div>
+                    <div class="val">25%</div>
+                  </div>
+                  <div class="item flex items-center justify-between mb-6">
+                    <div class="lbl">TIME</div>
+                    <div class="val">180 Days</div>
+                  </div>
+                </div>
+                <div class="action flex items-center justify-center">
+                  <button class="btn button-85" onclick="handleStake(3)">
+                    Stake
+                  </button>
+                </div>
+              </div>
+              <div class="meta flex flex-col tab2_div" style="display: none">
+                <select
+                id="stake-select-3"
+                class=" "
+                style="
+                  width: 100%;
+                  height: 40px;
+                  padding: 0px 1rem;
+                  border-radius: 0.5rem;
+                  border: 1px solid rgb(229, 229, 229);
+                  background-color: rgb(255, 255, 255);
+                  font-size: 1.2rem;
+                  color: rgb(0, 0, 0);
+                  outline: none;
+                  cursor: pointer;
+                "
+              >
+                <option value="STAKES">Your Stake</option>
+              </select><br><br><br>
+                <div class="field-action flex items-center w-full">
+                 
+                  <div class="val min-w-[100px]" id="reward-3">0</div>
+                  <button
+                    class="btn button-85 w-full"
+                    id="claim-reward-3"
+                    onclick="claimReward(3)"
+                  >
+                    Claim
+                  </button>
+                </div>
+                <div class="field-action flex items-center w-full">
+                  <button class="btn button-85 w-full" onclick="handleWithdraw(3)">
+                    Withdraw
+                  </button>
+                </div>
+                <div class="item flex items-center justify-between mb-6">
+                  <div class="lbl">Unlocks In</div>
+                  <span id="unlock-time-3" style="color: white;">00:00:00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="card flex flex-col items-center">
+            <div class="card-tag">Staking Plan #4</div>
+            <div class="card-block flex-col items-center">
+              <div class="selection-tabs flex items-center">
+                <div
+                  class="tab flex items-center justify-center active tab1"
+                  onclick="changeDivtab1(this)"
+                >
+                  Stake
+                </div>
+                <button
+                  id="reward-tab-4"
+                  class="tab flex items-center justify-center tab2"
+                  onclick="handleRewardTab(this, 4)"
+                >
+                  Reward
+                </button>
+              </div>
+              <div class="meta flex flex-col justify-between tab1_div">
+                <div class="fields-box flex flex-col">
+                  <div class="field flex flex-col">
+                    <div class="f-tag">Stake Token Amount</div>
+                    <div class="input-box flex items-center mb-6">
+                      <input
+                        id="stake-token-amount-4"
+                        type="number"
+                        class="txt w-full"
+                        placeholder="Stake token amount"
+                        value="0"
+                        oninput="this.value = Math.floor(this.value / 2) * 2;"
+                      />
+                    </div>
+                    
+                  </div>
+                  <div class="item flex items-center justify-between">
+                    <div class="lbl">ROI</div>
+                    <div class="val">50%</div>
+                  </div>
+                  <div class="item flex items-center justify-between mb-6">
+                    <div class="lbl">TIME</div>
+                    <div class="val">365 Days</div>
+                  </div>
+                </div>
+                <div class="action flex items-center justify-center">
+                  <button class="btn button-85" onclick="handleStake(4)">
+                    Stake
+                  </button>
+                </div>
+              </div>
+              <div class="meta flex flex-col tab2_div" style="display: none">
+                <select
+                    id="stake-select-4"
+                    class=" "
+                    style="
+                      width: 100%;
+                      height: 40px;
+                      padding: 0px 1rem;
+                      border-radius: 0.5rem;
+                      border: 1px solid rgb(229, 229, 229);
+                      background-color: rgb(255, 255, 255);
+                      font-size: 1.2rem;
+                      color: rgb(0, 0, 0);
+                      outline: none;
+                      cursor: pointer;
+                    "
+                  >
+                    <option value="STAKES">Your Stake</option>
+                  </select><br><br><br>
+                <div class="field-action flex items-center w-full">
+                 
+                  <div class="val min-w-[100px]" id="reward-4">0</div>
+                  <button
+                    class="btn button-85 w-full"
+                    id="claim-reward-4"
+                    onclick="claimReward(4)"
+                  >
+                    Claim
+                  </button>
+                </div>
+                <div class="field-action flex items-center w-full">
+                  <button class="btn button-85 w-full" onclick="handleWithdraw(4)">
+                    Withdraw
+                  </button>
+                </div>
+                <div class="item flex items-center justify-between mb-6">
+                  <div class="lbl">Unlocks In</div>
+                  <span id="unlock-time-4"  style="color: white;">00:00:00:00</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+    </div>
+
+   
+    
+
+
+
+
+    <footer class="footer-distributed">
+
+			<div class="footer-right">
+
+				<!-- <a href="#"><i class="fa fa-facebook"></i></a> -->
+				<a href="https://t.me/CloutContracts" target="_blank"><i class="fa fa-telegram"></i></a>
+				<!-- <a href="#"><i class="fa fa-discord"></i></a> -->
+				<a href="https://www.reddit.com/r/CloutContracts/"><i class="fa fa-reddit"></i></a>
+				<a href="https://github.com/CloutContracts" target="_blank"><i class="fa fa-github"></i></a>
+
+			</div>
+
+			<div class="footer-left">
+
+				<p class="footer-links">
+					<a class="link-1" href="https://cloutcontracts.net/" target="_blank">Home</a>
+
+					<a href="https://angel.co/s/digitalcpr/ngwMx" target="_blank">VC Fund</a>
+
+					<a href="https://cloutcontracts.net/CloutSwap" target="_blank">CloutSwap</a>
+
+					<!-- <a href="#">About</a>
+
+					<a href="#">Faq</a>
+
+					<a href="#">Contact</a> -->
+				</p>
+
+				<p>CloutContracts &copy; 2023</p>
+			</div>
+
+		</footer>
+
+    
+    
+
+
+
+    
+
+    <div id="FE0A288A-C4C0-4651-009E-B109DAFB01F6"></div>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/web3/1.8.2/web3.min.js"
+      integrity="sha512-Ls8WO4Esu7Jb9a92BfIp1Ftgl9t5Ncaa/6zKzpOkTGXW+dPcJcI4Yz2HR7cXY0YcfIAsL7R9Gqfbw8ERX8iYaA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script src="script.js"></script>
+  </body>
+</html>
