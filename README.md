@@ -1,0 +1,3 @@
+[![CCSLOGO](https://raw.githubusercontent.com/CloutContracts/cloutcontracts.github.io/main/assets/images/c-128x128.png)](https://cloutcontracts.net)
+# CloutContracts Staking
+CCS holders who have CCS on the Ethereum Mainnet can now stake some of their CSS for a certain period of time, and receive CCS on top of their staked amount as a reward. To insure trust, the Solidity code that this DApp interacts with is verified and viewable on Etherscan. On Binance, the option to stake CloutContracts_Peg is available. Please keep in mind, this isn't investment or financial advice. CloutContracts is to be looked at as a utility. 
